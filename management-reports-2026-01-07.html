@@ -1,0 +1,638 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management Reports Dashboard - November 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #FAF9F6;
+        }
+        .excs-blue { color: #1B315D; }
+        .excs-orange { color: #F58520; }
+        .excs-bg-blue { background-color: #1B315D; }
+        .excs-bg-orange { background-color: #F58520; }
+        .chart-container { 
+            position: relative; 
+            height: 400px; 
+            margin: 20px 0;
+        }
+        .metric-card {
+            background: white;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 8px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .progress-bar {
+            background-color: #e5e7eb;
+            border-radius: 4px;
+            height: 8px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            background-color: #10b981;
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+        @media print {
+            .no-print { display: none !important; }
+            .chart-container { height: 300px !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="max-w-7xl mx-auto p-6">
+        <!-- Header -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-6 border border-gray-200">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl font-bold excs-blue">Management Reports Dashboard</h1>
+                    <p class="mt-1 text-gray-600">November 2025 - Financial Performance Overview</p>
+                    <p class="text-sm text-gray-500 mt-2">Generated on: 07/01/2026 at 09:37:45</p>
+                </div>
+                <div class="no-print">
+                    <button onclick="window.print()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">
+                        <i data-lucide="printer" class="w-4 h-4 inline mr-2"></i>
+                        Print Report
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- KPI Overview -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-6 border border-gray-200">
+            <h2 class="text-xl font-bold excs-blue mb-4">Key Performance Indicators</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                
+                    <div class="metric-card">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm font-medium text-gray-700">YTD Revenue</span>
+                            <span class="px-2 py-1 text-xs rounded-full bg-red-100 text-red-800">
+                                ↓ below
+                            </span>
+                        </div>
+                        <div class="text-2xl font-bold excs-blue">
+                            $37,136,351
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            Target: $40,000,000
+                        </div>
+                    </div>
+                
+                    <div class="metric-card">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm font-medium text-gray-700">YTD Gross Profit</span>
+                            <span class="px-2 py-1 text-xs rounded-full bg-red-100 text-red-800">
+                                ↓ below
+                            </span>
+                        </div>
+                        <div class="text-2xl font-bold excs-blue">
+                            $10,393,241
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            Target: $12,000,000
+                        </div>
+                    </div>
+                
+                    <div class="metric-card">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm font-medium text-gray-700">Gross Profit Margin</span>
+                            <span class="px-2 py-1 text-xs rounded-full bg-red-100 text-red-800">
+                                ↓ below
+                            </span>
+                        </div>
+                        <div class="text-2xl font-bold excs-blue">
+                            $28
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            Target: $30
+                        </div>
+                    </div>
+                
+                    <div class="metric-card">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm font-medium text-gray-700">Monthly Growth Rate</span>
+                            <span class="px-2 py-1 text-xs rounded-full bg-red-100 text-red-800">
+                                ↓ below
+                            </span>
+                        </div>
+                        <div class="text-2xl font-bold excs-blue">
+                            -3.8%
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            Target: 5.0%
+                        </div>
+                    </div>
+                
+                    <div class="metric-card">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm font-medium text-gray-700">Best Month Revenue</span>
+                            <span class="px-2 py-1 text-xs rounded-full bg-red-100 text-red-800">
+                                ↓ below
+                            </span>
+                        </div>
+                        <div class="text-2xl font-bold excs-blue">
+                            $4,092,839
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            Target: $4,500,000
+                        </div>
+                    </div>
+                
+                    <div class="metric-card">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm font-medium text-gray-700">Avg Monthly Revenue</span>
+                            <span class="px-2 py-1 text-xs rounded-full bg-red-100 text-red-800">
+                                ↓ below
+                            </span>
+                        </div>
+                        <div class="text-2xl font-bold excs-blue">
+                            $3,376,032
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            Target: $3,500,000
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+
+        <!-- Revenue Chart -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-6 border border-gray-200">
+            <h2 class="text-xl font-bold excs-blue mb-4">Monthly Revenue Trend</h2>
+            <div class="chart-container">
+                <canvas id="revenueChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Department Performance -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-6 border border-gray-200">
+            <h2 class="text-xl font-bold excs-blue mb-4">Department Performance - Budget vs Actual vs Forecast</h2>
+            <div class="chart-container">
+                <canvas id="departmentChart"></canvas>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+                
+                    <div class="metric-card">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-medium text-gray-700">Admin & Support</span>
+                            <span class="px-2 py-1 text-xs rounded-full bg-orange-100 text-orange-800">
+                                Over Budget
+                            </span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 text-sm mb-2">
+                            <div>
+                                <div class="text-gray-500">Budget</div>
+                                <div class="font-bold">$383,146</div>
+                            </div>
+                            <div>
+                                <div class="text-gray-500">Actual</div>
+                                <div class="font-bold">$470,420</div>
+                            </div>
+                            <div>
+                                <div class="text-gray-500">Forecast</div>
+                                <div class="font-bold">$421,460</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between text-sm mb-2">
+                            <span class="text-gray-500">Budget Utilization</span>
+                            <span class="font-bold text-orange-600">
+                                122.8%
+                            </span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 122.8%"></div>
+                        </div>
+                        <div class="text-xs text-gray-500 mt-1">
+                            22.8% over budget
+                        </div>
+                    </div>
+                
+                    <div class="metric-card">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-medium text-gray-700">Sales & Marketing</span>
+                            <span class="px-2 py-1 text-xs rounded-full bg-orange-100 text-orange-800">
+                                Over Budget
+                            </span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 text-sm mb-2">
+                            <div>
+                                <div class="text-gray-500">Budget</div>
+                                <div class="font-bold">$20,786</div>
+                            </div>
+                            <div>
+                                <div class="text-gray-500">Actual</div>
+                                <div class="font-bold">$42,645</div>
+                            </div>
+                            <div>
+                                <div class="text-gray-500">Forecast</div>
+                                <div class="font-bold">$22,864</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between text-sm mb-2">
+                            <span class="text-gray-500">Budget Utilization</span>
+                            <span class="font-bold text-orange-600">
+                                205.2%
+                            </span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 150%"></div>
+                        </div>
+                        <div class="text-xs text-gray-500 mt-1">
+                            105.2% over budget
+                        </div>
+                    </div>
+                
+                    <div class="metric-card">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-medium text-gray-700">Operations</span>
+                            <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">
+                                Under Budget
+                            </span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 text-sm mb-2">
+                            <div>
+                                <div class="text-gray-500">Budget</div>
+                                <div class="font-bold">$42,267</div>
+                            </div>
+                            <div>
+                                <div class="text-gray-500">Actual</div>
+                                <div class="font-bold">$39,326</div>
+                            </div>
+                            <div>
+                                <div class="text-gray-500">Forecast</div>
+                                <div class="font-bold">$46,494</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between text-sm mb-2">
+                            <span class="text-gray-500">Budget Utilization</span>
+                            <span class="font-bold text-green-600">
+                                93.0%
+                            </span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 93%"></div>
+                        </div>
+                        <div class="text-xs text-gray-500 mt-1">
+                            7.0% under budget
+                        </div>
+                    </div>
+                
+                    <div class="metric-card">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-medium text-gray-700">IT Infrastructure</span>
+                            <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">
+                                Under Budget
+                            </span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 text-sm mb-2">
+                            <div>
+                                <div class="text-gray-500">Budget</div>
+                                <div class="font-bold">$1,308</div>
+                            </div>
+                            <div>
+                                <div class="text-gray-500">Actual</div>
+                                <div class="font-bold">$0</div>
+                            </div>
+                            <div>
+                                <div class="text-gray-500">Forecast</div>
+                                <div class="font-bold">$1,439</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between text-sm mb-2">
+                            <span class="text-gray-500">Budget Utilization</span>
+                            <span class="font-bold text-green-600">
+                                0.0%
+                            </span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <div class="text-xs text-gray-500 mt-1">
+                            100.0% under budget
+                        </div>
+                    </div>
+                
+                    <div class="metric-card">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-medium text-gray-700">Professional Fees</span>
+                            <span class="px-2 py-1 text-xs rounded-full bg-orange-100 text-orange-800">
+                                Over Budget
+                            </span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 text-sm mb-2">
+                            <div>
+                                <div class="text-gray-500">Budget</div>
+                                <div class="font-bold">$52,546</div>
+                            </div>
+                            <div>
+                                <div class="text-gray-500">Actual</div>
+                                <div class="font-bold">$60,712</div>
+                            </div>
+                            <div>
+                                <div class="text-gray-500">Forecast</div>
+                                <div class="font-bold">$57,800</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between text-sm mb-2">
+                            <span class="text-gray-500">Budget Utilization</span>
+                            <span class="font-bold text-orange-600">
+                                115.5%
+                            </span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 115.5%"></div>
+                        </div>
+                        <div class="text-xs text-gray-500 mt-1">
+                            15.5% over budget
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+
+        <!-- Top Customers -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-6 border border-gray-200">
+            <h2 class="text-xl font-bold excs-blue mb-4">Top Customers - YTD vs November Revenue</h2>
+            <div class="chart-container">
+                <canvas id="customersChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Top Countries -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-6 border border-gray-200">
+            <h2 class="text-xl font-bold excs-blue mb-4">Top Countries - YTD vs November Revenue</h2>
+            <div class="chart-container">
+                <canvas id="countriesChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Expense Breakdown -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-6 border border-gray-200">
+            <h2 class="text-xl font-bold excs-blue mb-4">Expense Breakdown</h2>
+            <div class="chart-container">
+                <canvas id="expensesChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200 mt-8">
+            <div class="text-center text-gray-600">
+                <p class="text-sm">Management Reports Dashboard - November 2025</p>
+                <p class="text-xs mt-2">This report was generated on 07/01/2026 at 09:37:45</p>
+                <p class="text-xs">Data source: 1125- Management Reports November 2025 1 (1).xlsx</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Chart.js global configuration
+        Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        Chart.defaults.color = '#374151';
+
+        // Revenue Chart
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(revenueCtx, {
+            type: 'line',
+            data: {
+                labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov"],
+                datasets: [{
+                    label: 'Monthly Revenue',
+                    data: [2845439.67,2912143.34,3056725.89,3311641.7,3529441.42,4092839.03,3391123.66,4078873.52,3157461.44,3445214.02,3315446.9],
+                    borderColor: '#1B315D',
+                    backgroundColor: 'rgba(27, 49, 93, 0.1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return 'Revenue: $' + context.parsed.y.toLocaleString();
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + (value / 1000000).toFixed(1) + 'M';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Department Chart
+        const deptCtx = document.getElementById('departmentChart').getContext('2d');
+        new Chart(deptCtx, {
+            type: 'bar',
+            data: {
+                labels: ["Admin & Support","Sales & Marketing","Operations","IT Infrastructure","Professional Fees"],
+                datasets: [
+                    {
+                        label: 'Budget',
+                        data: [383145.73,20785.7,42267.23,1308.24,52545.53],
+                        backgroundColor: '#1B315D'
+                    },
+                    {
+                        label: 'Actual YTD',
+                        data: [470420.23,42644.8,39326.11,0,60712.13],
+                        backgroundColor: '#F58520'
+                    },
+                    {
+                        label: 'Forecast',
+                        data: [421460.3,22864.27,46493.95,1439.06,57800.08],
+                        backgroundColor: '#10b981'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': $' + context.parsed.y.toLocaleString();
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + (value / 1000).toFixed(0) + 'K';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Top Customers Chart
+        const customersCtx = document.getElementById('customersChart').getContext('2d');
+        new Chart(customersCtx, {
+            type: 'bar',
+            data: {
+                labels: ["HCL","DXC","TCS","Others","COGNIZANT","Lenovo","TechMahindra","Capgemini"],
+                datasets: [
+                    {
+                        label: 'YTD Revenue',
+                        data: [15325545.03,5632299.61,5374969.53,4773555.85,2112099.85,1962893.75,1381265.91,1233793.72],
+                        backgroundColor: '#1B315D'
+                    },
+                    {
+                        label: 'November Revenue',
+                        data: [1506559.45,427579.17,450888.46,384087.48,228322.53,30916.79,111904.16,225631.81],
+                        backgroundColor: '#F58520'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': $' + context.parsed.y.toLocaleString();
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + (value / 1000000).toFixed(1) + 'M';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Top Countries Chart
+        const countriesCtx = document.getElementById('countriesChart').getContext('2d');
+        new Chart(countriesCtx, {
+            type: 'bar',
+            data: {
+                labels: ["USA","UK","Switzerland","Germany","Belgium","Netherlands","Poland","China","France","Italy"],
+                datasets: [
+                    {
+                        label: 'YTD Revenue',
+                        data: [5415642.19,1991858.74,1624500.62,1499453.6,1480751.95,1225879.07,1091401.52,1041824.3,955020.76,884814.33],
+                        backgroundColor: '#1B315D'
+                    },
+                    {
+                        label: 'November Revenue',
+                        data: [414870.96,140168.78,153027.92,194888.42,141079.84,122900.19,101381.73,80528.08,101342.13,63162.38],
+                        backgroundColor: '#F58520'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': $' + context.parsed.y.toLocaleString();
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + (value / 1000000).toFixed(1) + 'M';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Expenses Chart
+        const expensesCtx = document.getElementById('expensesChart').getContext('2d');
+        new Chart(expensesCtx, {
+            type: 'pie',
+            data: {
+                labels: ["Direct Costs","Sales Rebates","Operations","R&D","Infrastructure","Other"],
+                datasets: [{
+                    data: [25733798.05,660072.66,5200000,2800000,1800000,600000],
+                    backgroundColor: [
+                        '#1B315D',
+                        '#F58520',
+                        '#10b981',
+                        '#8b5cf6',
+                        '#ef4444',
+                        '#808389'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'right'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const percentage = ((context.parsed / total) * 100).toFixed(1);
+                                return context.label + ': $' + context.parsed.toLocaleString() + ' (' + percentage + '%)';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+      
